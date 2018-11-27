@@ -1,0 +1,51 @@
+<!-- pages/tang/tang.wxml -->
+<view class="page">
+  <!--  <view class="page__hd">
+        <view class="page__title"><text>{{title}}</text></view>
+        <view class="page__desc">
+          <text>{{content}}</text>
+        </view>
+    </view> -->
+  <!-- <view class="weui-cells__title">{{userInfo.nickName}}，欢迎来到唐诗的世界，H</view> -->
+  <view class="page__bd">
+
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="作者或作品" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="inputConfirm" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">根据作者或名称查找</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <view class="weui-cells searchbar-result" wx:if="{{searchPoetryArray.length > 0}}">
+      <navigator url="../poetry/poetry?poetry_id={{item.id}}&author_id={{item.author_id}}" wx:for="{{searchPoetryArray}}" wx:for-item="item" wx:key="poetry" class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{item.title}} [{{item.dynasty}}]{{item.author}}</view>
+      </navigator>
+    </view>
+
+
+    <view class="weui-cells weui-cells_after-title">
+      <!--   <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__bd">静夜思</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">李白</view>
+          </navigator>
+          <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__bd">长恨歌</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">白居易</view>
+          </navigator> -->
+      <navigator url="../poetry/poetry?poetry_id={{item.id}}&author_id={{item.author_id}}" wx:for="{{poetryArray}}" wx:for-item="item" wx:key="poetry" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{item.title}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">[{{item.dynasty}}]{{item.author}}</view>
+      </navigator>
+    </view>
+  </view>
+
+</view>
