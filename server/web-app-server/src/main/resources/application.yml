@@ -1,0 +1,25 @@
+logging:
+  level:
+    org.springframework.web: info
+    com.poems.miniapp: debug
+    cn.binarywang.wx.miniapp: debug
+
+server:
+  port: 8080
+
+wx:
+  miniapp:
+    configs:
+        - appid: wx4a9978234d406a66
+          secret: 116400bd1808999ba266c2c9f6ac693b
+          token: WhalenChan
+          aesKey: L1DvovPOqQLSHIQiGrRL9FeCzrltsuwwIg4PLnypfXZ
+          msgDataFormat: JSON
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/poem
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
