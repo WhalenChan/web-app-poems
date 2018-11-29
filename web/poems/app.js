@@ -14,7 +14,7 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if (res.code) {
           wx.request({
-            url: this.globalData.basicUrl + '/wechat/user/login',
+            url: this.globalData.basicUrl +  '/wx/user/wx4a9978234d406a66/login',
             header: {
               'content-type': 'application/json' // 默认值
             },
@@ -40,7 +40,7 @@ App({
           wx.getUserInfo({
             success: res => {  
               wx.request({
-                url: this.globalData.basicUrl + '/wechat/user/info',
+                url: this.globalData.basicUrl + '/wx/user/wx4a9978234d406a66/info',
                 data: {
                   sessionKey: wx.getStorageSync('sessionKey'),
                   signature: res.signature,
@@ -53,19 +53,21 @@ App({
                 },
                 success: res => {
                   if (res.statusCode == 200) {
+                    console.log(res)
+                    console.log(res.data)
                     this.globalData.userInfo = res.data
                   }
                   
                 }
               })
               // 可以将 res 发送给后台解码出 unionId
-              //this.globalData.userInfo = res.userInfo
+              this.globalData.userInfo = res.userInfo
               //console.log(this.globalData.userInfo)
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
-              //if (this.userInfoReadyCallback) {
-              // this.userInfoReadyCallback(res)  
-              //}
+              if (this.userInfoReadyCallback) {
+               this.userInfoReadyCallback(res)  
+              }
             }
           })
         }
@@ -74,7 +76,8 @@ App({
   }, //end onLaunch
   globalData: {
     userInfo: null,
-    basicUrl: 'https://wechat.whalenchan.xyz'
+    basicUrl: 'https://whalenchan.tunnel.qydev.com',
+    appId: 'wx4a9978234d406a66'
   },
   onShow: function(params) {
   },

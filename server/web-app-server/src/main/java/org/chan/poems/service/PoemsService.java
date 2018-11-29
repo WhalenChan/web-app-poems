@@ -20,8 +20,16 @@ public class PoemsService {
     @Autowired
     private PoemsDao poemsDao;
 
-    public List<Map<String, String>> getIndex() {
-        return this.poemsDao.queryIndex();
+    /**
+     * 初始化唐诗
+     * @return
+     */
+    public List<Map<String, Object>> getTang() {
+        return this.poemsDao.queryTang();
+    }
+
+    public Map<String, Object> getTangDetails(String poetryId, String authorId) {
+        return this.poemsDao.queryTangDetails(poetryId, authorId);
     }
 
 }

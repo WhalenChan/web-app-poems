@@ -3,6 +3,8 @@ package org.chan.miniapp.controller;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +24,13 @@ import me.chanjar.weixin.common.error.WxErrorException;
 @RestController
 @RequestMapping("/wx/user/{appid}")
 public class WxMaUserController {
+
+
+
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     /**
      * 登陆接口
@@ -70,6 +78,38 @@ public class WxMaUserController {
 
         // 解密用户信息
         WxMaUserInfo userInfo = wxService.getUserService().getUserInfo(sessionKey, encryptedData, iv);
+        //微信号
+        String openId =  userInfo.getOpenId();
+        //昵称
+        String nickName = userInfo.getNickName();
+        //性别
+        String gender = userInfo.getGender();
+        //头像URL
+        String avatarUrl = userInfo.getAvatarUrl();
+        //省份
+        String province = userInfo.getProvince();
+        //国家(地区)
+        String country = userInfo.getCountry();
+        //微信版本语言
+        String language = userInfo.getLanguage();
+        //城市
+        String city = userInfo.getCity();
+        //联合ID
+        String unionId = userInfo.getUnionId();
+
+
+
+        String querySql = "SELECT COUNT(1) FROM wechat_user WHERE openId = ?";
+
+        Integer count = this.jdbcTemplate.queryForObject(querySql, new Object[] { openId }, Integer.class);
+        if (count != null && count == 0) {
+            String insertSql = "INSERT INTO " +
+                    "wechat_user(`openId`,`nickName`,`gender`,`avatarUrl`,`province`,`country`,`language`,`city`,`unionId`) " +
+                    "VALUES (?,?,?,?,?,?,?,?,?)";
+            this.jdbcTemplate.update(insertSql,
+                    new Object[] { openId,nickName,gender,avatarUrl,province,country,language,city,unionId });
+        }
+
 
         return JsonUtils.toJson(userInfo);
     }

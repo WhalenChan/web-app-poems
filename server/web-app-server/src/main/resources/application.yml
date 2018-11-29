@@ -11,7 +11,7 @@ wx:
   miniapp:
     configs:
         - appid: wx4a9978234d406a66
-          secret: 116400bd1808999ba266c2c9f6ac693b
+          secret: 9a633e3cf9e81551b7dd05eaf7afe784
           token: WhalenChan
           aesKey: L1DvovPOqQLSHIQiGrRL9FeCzrltsuwwIg4PLnypfXZ
           msgDataFormat: JSON

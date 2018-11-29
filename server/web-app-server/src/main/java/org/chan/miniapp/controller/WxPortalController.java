@@ -78,7 +78,7 @@ public class WxPortalController {
                 inMessage = WxMaMessage.fromXml(requestBody);
             }
 
-            this.route(inMessage,appid);
+            this.route(inMessage, appid);
             return "success";
         }
 
