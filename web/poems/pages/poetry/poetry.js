@@ -37,11 +37,10 @@ Page({
       },
       success: response => {
         var data = response.data
-        console.log(response)
         if (response.statusCode == 200) {
           app.hideGlobalToast()
           this.setData({
-            poetry: data[0]
+            poetry: data
           })
         }
       }

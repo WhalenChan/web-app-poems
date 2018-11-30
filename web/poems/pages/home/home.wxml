@@ -1,29 +1,29 @@
 <!--pages/home/home.wxml-->
 
 <view class="page">
-    <view class="page__hd">
-        <!--  <view class="page__title">花径不曾缘客扫,</view>
+  <view class="page__hd">
+    <!--  <view class="page__title">花径不曾缘客扫,</view>
         <view class="page__title">蓬门今始为君开。</view> -->
-        <!--<view class="page__desc">花径不曾缘客扫，蓬门今始为君开。</view> -->
-    </view>
-    <view class="page__bd">
-          <view class="icon-box" bindtap="bindTangTap">
-              <image src="../../images/book.png"></image>
-              <view class="icon-box__ctn">
-              
-                  <view class="icon-box__title">唐宋诗</view>
-                  <view class="icon-box__desc">唐诗泛指创作于唐朝的诗。唐诗是中华民族最珍贵的文化遗产之一，
-                  是中华文化宝库中的一颗明珠。</view>
-              </view>
-          </view>     
-        <view class="icon-box" bindtap="bindSongTap">
-            <image src="../../images/book.png"></image>
-            <view class="icon-box__ctn">
-                <view class="icon-box__title">宋词</view>
-                <view class="icon-box__desc">宋代盛行的一种中国文学体裁，宋词是一种相对于古体诗的新体诗歌之一，
-                标志宋代文学的最高成就。</view>
-            </view>
+    <!--<view class="page__desc">花径不曾缘客扫，蓬门今始为君开。</view> -->
+  </view>
+  <view class="page__bd">
+    <view class="icon-box" bindtap="bindTangTap">
+      <image src="../../images/song.png"></image>
+      <view class="icon-box__ctn">
+
+        <view class="icon-box__title">唐宋诗</view>
+        <view class="icon-box__desc">唐诗泛指创作于唐朝的诗。唐诗是中华民族最珍贵的文化遗产之一， 是中华文化宝库中的一颗明珠。
         </view>
+      </view>
     </view>
+    <view class="icon-box" bindtap="bindSongTap">
+      <image src="../../images/song.png"></image>
+      <view class="icon-box__ctn">
+        <view class="icon-box__title">宋词</view>
+        <view class="icon-box__desc">宋代盛行的一种中国文学体裁， 宋词是一种相对于古体诗的新体诗歌之一，标志宋代文学的最高成就。
+        </view>
+      </view>
+    </view>
+  </view>
 
 </view>
