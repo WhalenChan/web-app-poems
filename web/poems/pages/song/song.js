@@ -17,8 +17,7 @@ Page({
     poemsArray: [],
     inputShowed: false,
     inputVal: "",
-    confirmInput: false,
-    searchPoemsArray: []
+    confirmInput: false
   },
 
   /**
@@ -120,14 +119,12 @@ Page({
   hideInput: function () {
     this.setData({
       inputVal: "",
-      inputShowed: false,
-      searchPoemsArray: []
+      inputShowed: false
     });
   },
   clearInput: function () {
     this.setData({
-      inputVal: "",
-      searchPoemsArray: []
+      inputVal: ""
     });
   },
   inputTyping: function (e) {
@@ -137,14 +134,7 @@ Page({
   },
   clearInput: function () {
     this.setData({
-      inputVal: "",
-      searchPoetryArray: []
-    });
-  },
-  inputTyping: function (e) {
-    //console.log(e.detail.value)
-    this.setData({
-      inputVal: e.detail.value
+      inputVal: ""
     });
   },
   inputConfirm: function (e) {
@@ -153,24 +143,9 @@ Page({
       this.setData({
         inputConfirm: true
       })
+      wx.navigateTo({
+        url: '../search/song/song?searchText='+input,
+      })
     }
-    app.showGlobalToast()
-    wx.request({
-      url: app.globalData.basicUrl + '/song/search',
-      data: {
-        searchText: input
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: response => {
-        app.hideGlobalToast()
-        if (response.statusCode == 200) {
-          this.setData({
-            searchPoemsArray: response.data
-          })
-        }
-      }
-    })
   }
 })

@@ -1,0 +1,12 @@
+<!-- pages/search/tang/tang.wxml -->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <navigator url="../../poetry/poetry?poetryId={{item.id}}&authorId={{item.authorId}}" wx:for="{{poetryArray}}" wx:for-item="item" wx:key="poetry" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{item.title}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">[{{item.dynasty}}]{{item.author}}</view>
+      </navigator>
+    </view>
+  </view>
+
+</view>

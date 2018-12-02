@@ -5,7 +5,9 @@
     "pages/song/song",
     "pages/about/about",
     "pages/poetry/poetry",
-    "pages/poem/poem"
+    "pages/poem/poem",
+    "pages/search/tang/tang",
+    "pages/search/song/song"
   ],
   "window":{
     "backgroundTextStyle":"light",

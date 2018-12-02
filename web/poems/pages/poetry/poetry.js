@@ -8,16 +8,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    poetry_id: '',
-    author_id: '',
+    poetryId: '',
+    authorId: '',
     poetry: {}
   },
 
   onLoad: function(options) {
 
     this.setData({
-      poetry_id: options.poetry_id,
-      author_id: options.author_id
+      poetryId: options.poetryId,
+      authorId: options.authorId
     })
   },
 
@@ -29,8 +29,8 @@ Page({
     wx.request({
       url: app.globalData.basicUrl + '/tang/listDetails',
       data: {
-        poetry_id: this.data.poetry_id,
-        author_id: this.data.author_id
+        poetryId: this.data.poetryId,
+        authorId: this.data.authorId
       },
       header: {
         'content-type': 'application/json' // 默认值

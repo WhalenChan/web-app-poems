@@ -28,8 +28,7 @@ public class PoemsController {
     @GetMapping("tang/list")
     public String fetchTang(HttpServletRequest request) {
         String counter = request.getParameter("counter");
-        String searchText = request.getParameter("searchText");
-        return JSON.toJSONString(this.service.getTang());
+        return JSON.toJSONString(this.service.getTang(Integer.valueOf(counter)));
     }
 
     /**
@@ -40,10 +39,25 @@ public class PoemsController {
      */
     @GetMapping("tang/listDetails")
     public String fetchTangDetails(HttpServletRequest request) {
-        String poetryId = request.getParameter("poetry_id");
-        String authorId = request.getParameter("author_id");
+        String poetryId = request.getParameter("poetryId");
+        String authorId = request.getParameter("authorId");
 
         return JSON.toJSONString(this.service.getTangDetails(poetryId, authorId));
+    }
+
+    /**
+     * 唐诗搜索
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("tang/search")
+    public String doSearchTang(HttpServletRequest request) {
+        String counter = request.getParameter("counter");
+        //作品或作者
+        String searchText = request.getParameter("searchText");
+
+        return JSON.toJSONString(this.service.getTangSearch(searchText, Integer.valueOf(counter)));
     }
 
     /**
@@ -57,7 +71,7 @@ public class PoemsController {
         String counter = request.getParameter("counter");
         String searchText = request.getParameter("searchText");
 
-        return JSON.toJSONString(this.service.getSong());
+        return JSON.toJSONString(this.service.getSong(Integer.valueOf(counter)));
     }
 
     /**
@@ -68,10 +82,25 @@ public class PoemsController {
      */
     @GetMapping("song/listDetails")
     public String fetchSongDetails(HttpServletRequest request) {
-        String poemId = request.getParameter("poems_id");
-        String authorId = request.getParameter("author_id");
+        String poemId = request.getParameter("poemsId");
+        String authorId = request.getParameter("authorId");
 
         return JSON.toJSONString(this.service.getSongDetails(poemId, authorId));
+    }
+
+    /**
+     * 宋词搜索
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("song/search")
+    public String doSearchSong(HttpServletRequest request) {
+        String counter = request.getParameter("counter");
+        //作品或作者
+        String searchText = request.getParameter("searchText");
+
+        return JSON.toJSONString(this.service.getSongSearch(searchText, Integer.valueOf(counter)));
     }
 
 }

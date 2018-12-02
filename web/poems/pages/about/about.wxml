@@ -11,43 +11,43 @@
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__hd">关于这个小程序</view>
       <view class="weui-panel__bd">
-        <navigator url="https://github.com/WhalenChan/web-app-poems" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view url="#" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="../../images/github1.png" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">获取源码</view>
-            <view class="weui-media-box__desc">手摸手教你用SpringBoot开发一个小程序</view>
+            <view class="weui-media-box__desc">https://github.com/WhalenChan/web-app-poems</view>
           </view>
-        </navigator>
-        <navigator url="https://github.com/Tencent/weui" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        </view>
+        <view url="#" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="../../images/wechat.png" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">小程序样式</view>
-            <view class="weui-media-box__desc">WeUI：微信小程序官方UI</view>
+            <view class="weui-media-box__desc">WeUI 是一套同微信原生视觉体验一致的基础样式库</view>
           </view>
-        </navigator>
-        <navigator url="https://github.com/KomaBeyond/chinese-poetry-mysql" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        </view>
+        <view url="#" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="../../images/github3.png" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">诗词来源</view>
-            <view class="weui-media-box__desc">开源让世界如此美好，伸手党有木有</view>
+            <view class="weui-media-box__desc">https://github.com/KomaBeyond/chinese-poetry-mysql</view>
           </view>
-        </navigator>
-        <navigator url="http://www.iconfont.cn" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        </view>
+        <view url="http://www.iconfont.cn" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="../../images/alibaba.png" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
             <view class="weui-media-box__title">图标来源</view>
-            <view class="weui-media-box__desc">阿里巴巴矢量图标库，在哪里都能感受到爸爸的爱</view>
+            <view class="weui-media-box__desc">阿里巴巴矢量图标库 http://www.iconfont.cn/</view>
           </view>
-        </navigator>
-        <navigator url="https://www.github.com/WhalenChan" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        </view>
+        <view url="#" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="../../images/github4.png" />
           </view>
@@ -55,16 +55,34 @@
             <view class="weui-media-box__title">神秘邮箱</view>
             <view class="weui-media-box__desc">whalenchan330@gmail.com</view>
           </view>
-        </navigator>
-                <navigator url="https://www.github.com/WhalenChan" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        </view>
+        <view url="#" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="../../images/pig.png" />
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-            <view class="weui-media-box__title">波波吃齐啦</view>
+            <view class="weui-media-box__title">波波</view>
             <view class="weui-media-box__desc">好愁啊，头发越来越少了</view>
           </view>
-        </navigator>
+        </view>
+        <view url="#" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="../../images/end.png" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">写在最后</view>
+            <view class="weui-media-box__desc">由于诗词内容全部来自于互联网，没有经过人工整理，会“合理”的存在乱码</view>
+          </view>
+        </view>
+          <view url="#" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="../../images/cry.png" />
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">真的是最后了</view>
+            <view class="weui-media-box__desc">每栏都想多写一些话，奈何字太多会被用省略号代替，好愁啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</view>
+          </view>
+        </view>
       </view>
     </view>
   </view>

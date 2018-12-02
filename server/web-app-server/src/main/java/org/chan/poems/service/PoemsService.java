@@ -1,5 +1,6 @@
 package org.chan.poems.service;
 
+import com.google.common.collect.Lists;
 import org.chan.poems.dao.PoemsDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +26,8 @@ public class PoemsService {
      *
      * @return 唐诗列表
      */
-    public List<Map<String, Object>> getTang() {
-        return this.poemsDao.queryTang();
+    public List<Map<String, Object>> getTang(Integer counter) {
+        return this.poemsDao.queryTang(counter);
     }
 
     /**
@@ -37,7 +38,28 @@ public class PoemsService {
      * @return
      */
     public Map<String, Object> getTangDetails(String poetryId, String authorId) {
-        return this.poemsDao.queryTangDetails(poetryId, authorId);
+        Map<String, Object> resultMap = this.poemsDao.queryTangDetails(poetryId, authorId);
+        return resultMap;
+    }
+
+    /**
+     * 唐诗搜索
+     *
+     * @param searchText 查询条件
+     * @param counter 加载次数
+     * @return
+     */
+    public List<Map<String, Object>> getTangSearch(String searchText, Integer counter) {
+        List<Map<String, Object>> resultMapList = Lists.newArrayList();
+        resultMapList = this.poemsDao.queryTangByTitle(searchText, counter);
+        if (resultMapList != null && resultMapList.size() > 0) {
+            return resultMapList;
+        }
+        resultMapList = this.poemsDao.queryTangByAuthor(searchText, counter);
+        if (resultMapList != null && resultMapList.size() > 0) {
+            return resultMapList;
+        }
+        return resultMapList;
     }
 
 
@@ -46,8 +68,8 @@ public class PoemsService {
      *
      * @return 宋词列表
      */
-    public List<Map<String, Object>> getSong() {
-        return this.poemsDao.querySong();
+    public List<Map<String, Object>> getSong(Integer counter) {
+        return this.poemsDao.querySong(counter);
     }
 
     /**
@@ -59,6 +81,26 @@ public class PoemsService {
      */
     public Map<String, Object> getSongDetails(String poemId, String authorId) {
         return this.poemsDao.querySongDetails(poemId, authorId);
+    }
+
+    /**
+     * 宋词搜索
+     *
+     * @param searchText 查询条件
+     * @param counter 加载次数
+     * @return
+     */
+    public List<Map<String, Object>> getSongSearch(String searchText, Integer counter) {
+        List<Map<String, Object>> resultMapList = Lists.newArrayList();
+        resultMapList = this.poemsDao.querySongByTitle(searchText, counter);
+        if (resultMapList != null && resultMapList.size() > 0) {
+            return resultMapList;
+        }
+        resultMapList = this.poemsDao.querySongByAuthor(searchText, counter);
+        if (resultMapList != null && resultMapList.size() > 0) {
+            return resultMapList;
+        }
+        return resultMapList;
     }
 
 }

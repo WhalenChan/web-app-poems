@@ -1,5 +1,6 @@
 package org.chan.poems.dao;
 
+import org.chan.cons.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -26,9 +27,12 @@ public class PoemsDao {
      *
      * @return 唐诗列表
      */
-    public List<Map<String, Object>> queryTang() {
-        String sql = "SELECT * FROM poetry WHERE author_id = ?";
-        return this.jdbcTemplate.queryForList(sql, new Object[] { "105" });
+    public List<Map<String, Object>> queryTang(Integer counter) {
+        String sql = "SELECT id,title,yunlv_rule AS yunlvRule,author_id AS authorId, " +
+                "content,dynasty,author " +
+                "FROM poetry LIMIT ?,?";
+        return this.jdbcTemplate.queryForList(sql,
+                new Object[] { counter * Constant.OFFSET, Constant.OFFSET });
     }
 
     /**
@@ -39,10 +43,43 @@ public class PoemsDao {
      * @return 唐诗详情
      */
     public Map<String, Object> queryTangDetails(String poetryId, String authorId) {
-        String sql = "SELECT * FROM poetry WHERE id = ?";
+        String sql = "SELECT id,title,yunlv_rule AS yunlvRule,author_id AS authorId, " +
+                "content,dynasty,author " +
+                "FROM poetry WHERE id = ?";
         List<Map<String, Object>> listMap = this.jdbcTemplate.queryForList(sql, new Object[] { poetryId });
 
         return listMap.size() == 0 ? Collections.emptyMap() : listMap.get(0);
+    }
+
+
+    /**
+     * 根据唐诗名称搜索唐诗
+     *
+     * @param searchText 唐诗名称
+     * @param counter 加载次数
+     * @return
+     */
+    public List<Map<String, Object>> queryTangByTitle(String searchText, Integer counter) {
+        String sql = "SELECT id,title,yunlv_rule AS yunlvRule,author_id AS authorId, " +
+                "content,dynasty,author " +
+                "FROM poetry WHERE title=?  LIMIT ?,?";
+        return this.jdbcTemplate.queryForList(sql,
+                new Object[] {searchText, counter * Constant.OFFSET, Constant.OFFSET});
+    }
+
+    /**
+     * 根据唐诗作者搜索唐诗
+     *
+     * @param searchText 唐诗作者
+     * @param counter 加载次数
+     * @return
+     */
+    public List<Map<String, Object>> queryTangByAuthor(String searchText, Integer counter) {
+        String sql = "SELECT id,title,yunlv_rule AS yunlvRule,author_id AS authorId, " +
+                "content,dynasty,author " +
+                "FROM poetry WHERE author=?  LIMIT ?,?";
+        return this.jdbcTemplate.queryForList(sql,
+                new Object[] {searchText, counter * Constant.OFFSET, Constant.OFFSET});
     }
 
 
@@ -51,9 +88,11 @@ public class PoemsDao {
      *
      * @return 宋词列表
      */
-    public List<Map<String, Object>> querySong() {
-        String sql = "SELECT * FROM poems WHERE author_id = ?";
-        return this.jdbcTemplate.queryForList(sql, new Object[] { "1" });
+    public List<Map<String, Object>> querySong(Integer counter) {
+        String sql = "SELECT id,title,content,author_id AS authorId,dynasty,author " +
+                "FROM poems LIMIT ?,?";
+        return this.jdbcTemplate.queryForList(sql,
+                new Object[] { counter * Constant.OFFSET, Constant.OFFSET });
     }
 
     /**
@@ -64,10 +103,40 @@ public class PoemsDao {
      * @return 宋词详情
      */
     public Map<String, Object> querySongDetails(String poemId, String authorId) {
-        String sql = "SELECT * FROM poems WHERE id = ?";
-        List<Map<String, Object>> listMap = this.jdbcTemplate.queryForList(sql, new Object[] { poemId });
+        String sql = "SELECT id,title,content,author_id AS authorId,dynasty,author " +
+                "FROM poems WHERE id = ?";
+        List<Map<String, Object>> listMap = this.jdbcTemplate.queryForList(sql,
+                new Object[] { poemId });
 
         return listMap.size() == 0 ? Collections.emptyMap() : listMap.get(0);
+    }
+
+    /**
+     * 根据宋词名称查询宋词
+     *
+     * @param searchText 宋词名称
+     * @param counter 加载次数
+     * @return
+     */
+    public List<Map<String, Object>> querySongByTitle(String searchText, Integer counter) {
+        String sql = "SELECT id,title,content,author_id AS authorId,dynasty,author " +
+                "FROM poems WHERE title=? LIMIT ?,?";
+        return this.jdbcTemplate.queryForList(sql,
+                new Object[] { searchText, counter * Constant.OFFSET, Constant.OFFSET });
+    }
+
+    /**
+     * 根据宋词作者查询宋词
+     *
+     * @param searchText 宋词名称
+     * @param counter 加载次数
+     * @return
+     */
+    public List<Map<String, Object>> querySongByAuthor(String searchText, Integer counter) {
+        String sql = "SELECT id,title,content,author_id AS authorId,dynasty,author " +
+                "FROM poems WHERE author=? LIMIT ?,?";
+        return this.jdbcTemplate.queryForList(sql,
+                new Object[] { searchText, counter * Constant.OFFSET, Constant.OFFSET });
     }
 
 }
