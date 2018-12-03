@@ -14,6 +14,11 @@ Page({
   },
   onReady: function() {
   },
+  /**
+  * 用户点击右上角分享
+  */
+  onShareAppMessage: function () {
+  },
   //事件处理函数
   bindTangTap: function () {
     wx.navigateTo({

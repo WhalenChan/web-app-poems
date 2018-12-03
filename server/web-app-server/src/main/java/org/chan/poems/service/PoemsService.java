@@ -51,11 +51,11 @@ public class PoemsService {
      */
     public List<Map<String, Object>> getTangSearch(String searchText, Integer counter) {
         List<Map<String, Object>> resultMapList = Lists.newArrayList();
-        resultMapList = this.poemsDao.queryTangByTitle(searchText, counter);
+        resultMapList = this.poemsDao.queryTangByAuthor(searchText, counter);
         if (resultMapList != null && resultMapList.size() > 0) {
             return resultMapList;
         }
-        resultMapList = this.poemsDao.queryTangByAuthor(searchText, counter);
+        resultMapList = this.poemsDao.queryTangByTitle(searchText, counter);
         if (resultMapList != null && resultMapList.size() > 0) {
             return resultMapList;
         }
@@ -92,11 +92,11 @@ public class PoemsService {
      */
     public List<Map<String, Object>> getSongSearch(String searchText, Integer counter) {
         List<Map<String, Object>> resultMapList = Lists.newArrayList();
-        resultMapList = this.poemsDao.querySongByTitle(searchText, counter);
+        resultMapList = this.poemsDao.querySongByAuthor(searchText, counter);
         if (resultMapList != null && resultMapList.size() > 0) {
             return resultMapList;
         }
-        resultMapList = this.poemsDao.querySongByAuthor(searchText, counter);
+        resultMapList = this.poemsDao.querySongByTitle(searchText, counter);
         if (resultMapList != null && resultMapList.size() > 0) {
             return resultMapList;
         }

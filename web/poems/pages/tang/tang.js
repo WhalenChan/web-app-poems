@@ -4,7 +4,6 @@
 const app = getApp()
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -104,12 +103,6 @@ Page({
       }
     })
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () { },
-
   showInput: function () {
     this.setData({
       inputShowed: true
